@@ -1,0 +1,128 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package taxsystem.core.interfaces;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import taxsystem.core.dto.ActiveStatusDTO;
+import taxsystem.core.dto.ActivityFieldDTO;
+import taxsystem.core.dto.AuditTypeDTO;
+import taxsystem.core.dto.AuditorAuthorityDTO;
+import taxsystem.core.dto.BankDTO;
+import taxsystem.core.dto.BookDTO;
+import taxsystem.core.dto.BookReceiverTypeDTO;
+import taxsystem.core.dto.BudgetAccountDTO;
+import taxsystem.core.dto.CashRegisterTypeDTO;
+import taxsystem.core.dto.CountryDTO;
+import taxsystem.core.dto.CustomPointDTO;
+import taxsystem.core.dto.DeclarationTypeDTO;
+import taxsystem.core.dto.ExGoodDTO;
+import taxsystem.core.dto.FairDTO;
+import taxsystem.core.dto.GoodDTO;
+import taxsystem.core.dto.LiveCheckDTO;
+import taxsystem.core.dto.MouDTO;
+import taxsystem.core.dto.OrganizationTypeDTO;
+import taxsystem.core.dto.OwnTypeDTO;
+import taxsystem.core.dto.RegionDTO;
+import taxsystem.core.dto.RegisterOrgDTO;
+import taxsystem.core.dto.EnvDTO;
+import taxsystem.core.dto.CarModelDTO;
+import taxsystem.core.dto.CrStatusDTO;
+import taxsystem.core.dto.PrepaymentConfigDTO;
+import taxsystem.core.dto.SocialCardDTO;
+import taxsystem.core.dto.SubordinateDTO;
+import taxsystem.core.dto.TaxCalendarDTO;
+import taxsystem.core.dto.TaxDeclarationDTO;
+import taxsystem.core.dto.TaxPayerInfoDTO;
+import taxsystem.core.dto.TaxPointDTO;
+import taxsystem.core.dto.TaxTypeDTO;
+import taxsystem.core.dto.TownDTO;
+import taxsystem.core.dto.TpStatusActionDTO;
+import taxsystem.core.dto.TpStatusDTO;
+import taxsystem.core.dto.TpTypeDTO;
+import taxsystem.core.dto.TransferBaseTypeDTO;
+import taxsystem.core.dto.TransferObjectiveTypeDTO;
+import taxsystem.core.dto.VatAdjustmentCaseDTO;
+import taxsystem.core.dto.cr.SupportCenterDTO;
+import taxsystem.core.dto.doc.DocumentStatusDTO;
+import taxsystem.core.dto.obj.ObjectStatusDTO;
+import taxsystem.core.dto.obj.ObjectTypeDTO;
+import taxsystem.core.dto.online.DocCodesDTO;
+import taxsystem.core.types.ObligationPeriod;
+import taxsystem.core.dto.user.PermisionDTO;
+
+
+/**
+ *
+ * @author Administrator
+ */
+public interface DictionaryManager {
+  List<CountryDTO> getCountryList();
+  List<CustomPointDTO> getCustomPointList();
+  List<DeclarationTypeDTO> getDeclarationTypeList();
+  
+  List<TaxPointDTO> getTaxPointList(Long userId);
+  List<FairDTO> getFairList(Long userId);  
+  List<CashRegisterTypeDTO> getCashRegisterTypeList();
+  List<ActivityFieldDTO> getActivityFieldList();
+  List<BankDTO> getBankList();
+  List<BookDTO> getBookList();
+  List<OrganizationTypeDTO> getOrganizationTypeList(String tpType);
+  List<OwnTypeDTO> getOwnTypeList();
+  List<RegionDTO> getRegionList();
+  List<RegionDTO> getDistrictRegionList(String distCode);
+  List<SubordinateDTO> getSubordinateList();
+  List<BookReceiverTypeDTO> getBookReceiverTypeList();
+  List<RegisterOrgDTO> getRegisterOrgList();
+  List<TownDTO> getTownList();
+  List<TpStatusActionDTO> getTpStatusActionList(String tpType);
+  List<TpStatusDTO> getTpStatusList(String tpType);
+  List<TpTypeDTO> getTpTypeList();
+  List<VatAdjustmentCaseDTO> getVatAdjustmentCaseList();
+  List<BudgetAccountDTO> getBudgetAccountList();
+  List<ActiveStatusDTO> getActiveStatusList();
+  String getFairName(String fairTin);
+  String getCountryCode(String countryName);
+  SocialCardDTO getSocialCardInfo(String socialCard);
+  String getCompanyNameByTin(String tin);
+  String getTaxpayerNameByTin(String tin);
+  List<TaxCalendarDTO> getTaxCalendarDayList();
+  List<ExGoodDTO> getExGoodList();
+  List<MouDTO> getExMouList();
+  List<TaxCalendarDTO> getTaxCalendarDayListForPeriod(Date fromDate, Date toDate); 
+  void modifyTaxCalendarDay(String usermod, TaxCalendarDTO dto, boolean everyYear);
+  LiveCheckDTO getLiveCheckInfo();
+  List<GoodDTO> getMonthlyGoodsList();
+  List<GoodDTO> getQuarterGoodsList();
+  List<TaxTypeDTO> getTaxTypeList();
+  List<TaxTypeDTO> getPACIncludedTaxTypeList(boolean onlyMaster);
+  List<TaxTypeDTO> getAuditableTaxTypeList() ;
+  List<ObjectTypeDTO> getObjectTypeList();
+  String getDistCodeByTin(String tin);
+  Map<Integer, List<MouDTO>> getEnvMouList();
+  Map<Integer, List<EnvDTO>> getRfEnvList();
+  List<CarModelDTO> getModelList();
+  TaxPayerInfoDTO getTaxpayerInfoByTin(String tin);
+  List<TransferBaseTypeDTO> getTransferBaseTypeList();
+  List<TransferObjectiveTypeDTO> getTransferObjectiveTypeList();
+  List<BudgetAccountDTO> getBudgetAccountListByTaxCode(String taxCode);
+  List<ObjectStatusDTO> getObjectStatusList();
+  List<CrStatusDTO> getCrStatusList();
+  List<Long> getActiveObjectList();  
+  List<SupportCenterDTO> getSupportCenterList();
+  List<AuditTypeDTO> getAuditTypes();
+  List<AuditorAuthorityDTO> getAuditorAuthorities();
+  List<DocCodesDTO> getOnlineDocCodes();
+  TaxDeclarationDTO getPeriodByDate(String taxCode,Date date, boolean monthlyFirst);
+  List<DocCodesDTO> getDocCodes(); 
+  List<DocumentStatusDTO> getDocumentStatuses();
+  List<ObligationPeriod> getTaxObligationPeriods(String taxCode);
+  List<PermisionDTO> getUserPermisionList();
+  PrepaymentConfigDTO getPrepaymentConfigByDocCode(String docCode,Date date);
+  public List<BudgetAccountDTO> getToBudgetAccountList(String taxCode, String formType);
+  public List<BudgetAccountDTO> getFromBudgetAccountList(String taxCode, String formType);
+}

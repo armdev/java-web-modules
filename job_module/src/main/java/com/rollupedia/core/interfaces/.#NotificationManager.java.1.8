@@ -1,0 +1,30 @@
+package taxsystem.core.interfaces;
+
+import taxsystem.core.dto.notifications.*;
+
+import java.util.List;
+
+public interface NotificationManager {
+    
+    Long getNotificationsCount(NotificationsFilterDTO filter);
+    List<NotificationsDTO> getNotificationsList(NotificationsFilterDTO filter, Integer firstRow, Integer numberOfRows);
+    boolean deleteNotificationsList(Integer id);
+    boolean deleteNotification(String dln, Integer type);
+    Integer addNotificationsList(NotificationsDTO notificationsList, String username);
+    NotificationsDTO getBaseNotification(Integer id);
+    Long getNotifItemsCount(NotifsFilterDTO filter, Integer baseId);
+    List<NotificationItemsDTO> getNotifiItemsList(NotifsFilterDTO filter, Integer baseId, Integer firstRow, Integer numberOfRows);
+    Long getAllNotifItemsCount(AllNotificationsFilterDTO filter);
+    List<NotificationItemsDTO> getAllNotifItemsList(AllNotificationsFilterDTO filter, Integer firstRow, Integer numberOfRows);
+    NotificationItemsDTO getNotificationItem(String dln);
+    NotificationItemsDTO getNotificationItem(String dln, Integer type);
+    boolean deleteNotification(NotificationItemsDTO itemDTO, String username);
+    void changeByPost(String dln);
+    void changeByPhone(String dln);
+    void changeDirectly(String dln);
+    void addNotification(NotificationItemsDTO dto, String username);
+    void updateNotification(NotificationItemsDTO dto, String username);
+    byte[] getNotificationReport(NotificationItemsDTO dto);
+    byte[] getNotificationListReport(NotifsFilterDTO filter, Integer baseId, Integer type);
+    byte[] getAllNotificationListReport(AllNotificationsFilterDTO filter);
+}

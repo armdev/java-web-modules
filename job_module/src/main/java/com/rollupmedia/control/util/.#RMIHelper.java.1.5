@@ -1,0 +1,77 @@
+package am.iunetworks.tp3.ejb.control.util;
+
+import java.util.Properties;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import taxsystem.core.interfaces.DeclarationMigrationManager;
+import taxsystem.core.interfaces.DictionaryManager;
+import taxsystem.core.interfaces.DocumentManager;
+import taxsystem.core.interfaces.GeneralMigrationManager;
+//import taxsystem.core.interfaces.InvoiceCrossChecker;
+import taxsystem.core.interfaces.InvoiceNumberManager;
+import taxsystem.core.interfaces.JobManager;
+import taxsystem.core.interfaces.PACManager;
+import taxsystem.core.interfaces.PACMigrationManager;
+import taxsystem.core.interfaces.TpManager;
+
+public class RMIHelper {
+
+	InitialContext context ;
+	
+	public RMIHelper() {
+        Properties props = new Properties();
+        props.setProperty("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory") ;
+        props.setProperty("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces") ;
+        props.setProperty("java.naming.provider.url", "jnp://localhost:1099") ;
+        
+        try {
+			context = new InitialContext(props);
+		} 
+        catch (NamingException e) {
+        	throw new RuntimeException(e) ;
+		}
+	}
+	
+	public DictionaryManager lookupDictionaryManager() throws NamingException {
+		return (DictionaryManager) context.lookup("taxsystem/DictionaryManagerFacade/remote") ;
+	}
+
+	public PACMigrationManager lookupPACMigrationManager() throws NamingException {
+		return (PACMigrationManager) context.lookup("taxsystem/PACMigrationManagerFacade/remote") ;
+	}
+	
+	public PACManager lookupPACManager() throws NamingException {
+		return (PACManager) context.lookup("taxsystem/PACManagerFacade/remote") ;
+	}
+
+	public DocumentManager lookupDocumentManager() throws NamingException {
+		return (DocumentManager) context.lookup("taxsystem/DocumentManagerFacade/remote") ;
+	}
+
+	public TpManager lookupTpManager() throws NamingException {
+		return (TpManager) context.lookup("taxsystem/TpManagerFacade/remote") ;
+	}
+
+	public GeneralMigrationManager lookupGeneralMigrationManager() throws NamingException {
+		return (GeneralMigrationManager) context.lookup("taxsystem/GeneralMigrationManagerFacade/remote") ;
+	}
+        
+        public DeclarationMigrationManager lookupDeclarationMigrationManager() throws NamingException {
+		return (DeclarationMigrationManager) context.lookup("taxsystem/DeclarationMigrationManagerFacade/remote") ;
+	}
+        
+        public InvoiceNumberManager lookupInvoiceNumberManager() throws NamingException {
+		return (InvoiceNumberManager) context.lookup("taxsystem/InvoiceNumberManagerFacade/remote") ;
+	}
+        
+//        public InvoiceCrossChecker lookupInvoiceCrossChecker() throws NamingException {
+//		return (InvoiceCrossChecker) context.lookup("taxsystem/InvoiceCrossCheckerFacade/remote") ;
+//	}
+        
+        public JobManager lookupJobManager() throws NamingException {
+                return (JobManager) context.lookup("taxsystem/JobManagerFacade/remote") ;
+          
+        }
+}

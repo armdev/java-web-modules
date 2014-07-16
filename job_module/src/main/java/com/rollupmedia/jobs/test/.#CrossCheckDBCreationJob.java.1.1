@@ -1,0 +1,61 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package am.iunetworks.tp3.ejb.control.jobs.invoice;
+
+//import am.iunetworks.tp3.ejb.control.util.RMIHelper;
+import java.util.Calendar;
+import java.util.Date;
+import javax.naming.NamingException;
+import org.apache.log4j.Logger;
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
+//import taxsystem.core.interfaces.InvoiceCrossChecker;
+import taxsystem.core.interfaces.JobManager;
+
+/**
+ *
+ * @author David
+ */
+public class CrossCheckDBCreationJob implements Job {
+  
+  // Temporary.Should be moved to separate JobStatus class.
+  private static final int JOB_STATUS_OK = 1;
+  private static final int JOB_STATUS_FAILED = 0;
+  
+  
+  Logger logger = Logger.getLogger(getClass());
+  
+  public void execute(JobExecutionContext context) throws JobExecutionException {
+   // RMIHelper rmiHelper = new RMIHelper();
+    String jobName = context.getJobDetail().getName();
+    Date lastRunDate = null;
+    JobManager jobManager = null;
+    
+//    try {
+//     // jobManager = rmiHelper.lookupJobManager();
+//      lastRunDate = jobManager.getLastRunDate(jobName);
+//
+//    //  InvoiceCrossChecker crossChecker = rmiHelper.lookupInvoiceCrossChecker();
+//
+//      Date newDate = Calendar.getInstance().getTime();
+//    //  crossChecker.updateCrossCheckDB(lastRunDate,newDate);
+//
+//      jobManager.saveLastRun(jobName,newDate, JOB_STATUS_OK, "");
+//
+//    } catch (NamingException ex) {
+//      logger.error("Failed to start CrossCheckDBCreationJob", ex) ;
+//      context.setResult("Failed to start CrossCheckDBCreationJob" + ex.getMessage()) ;
+//    }
+//    catch (Exception ex) {
+//      if(lastRunDate != null) {
+//        jobManager.saveLastRun(jobName, lastRunDate, JOB_STATUS_FAILED, ex.getMessage());
+//      }
+//      logger.error("Failed to finish CrossCheckDBCreationJob", ex) ;
+//      context.setResult("Failed to finish CrossCheckDBCreationJob" + ex.getMessage()) ;
+//    //
+  }
+}

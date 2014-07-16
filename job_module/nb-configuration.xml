@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-shared-configuration>
+    <!--
+This file contains additional configuration written by modules in the NetBeans IDE.
+The configuration is intended to be shared among all the users of project and
+therefore it is assumed to be part of version control checkout.
+Without this configuration present, some functionality in the IDE may be limited or fail altogether.
+-->
+    <properties xmlns="http://www.netbeans.org/ns/maven-properties-data/1">
+        <!--
+Properties that influence various parts of the IDE, especially code formatting and the like. 
+You can copy and paste the single properties, into the pom.xml file and the IDE will pick them up.
+That way multiple projects can share the same settings (useful for formatting rules for example).
+Any value defined here will override the pom.xml file value but is only applicable to the current project.
+-->
+        <org-zeroturnaround-jrebel-netbeans.remoting_2e_private>3082025f02010002818100c00779c7415f955d5b5fb628acaf8af44619bb3ad03b8b34cd3ff63d26d26fbad6cb2d32d7777ae5b1bdd60194acb2df871f62db765d4f346bb1fea74ca968f8aa84464c6c500067a282619f01151baa7cf30dbb1c85ca43902c000283ce8f14348a506a4be4ed78d02fcb4481880f2bcf5bd3b3eaf5d08616f33d23d2f910bf020301000102818100a8d369bb46bc5443399c52383c6a310e45bb45a295846404ce16d7d4379777679a84127eca745ef6266832083dbfff9b09df0c38ca3d8aef1967e9ed083740f328874d0ff323e3566dd8665119262f97e9d0ee3765b75a90bf25dce46e0087941f617660ac51499ccb19e333973179c70653bb24ef28b95a0744866144c83441024100df6a1ad6715dc5961265042c1939ffd0b5427be73eeff9d692d4ae44b720e7600c90e6a40872cfa05bf165ddcaa9e7aaeb1bc52e6d5af6efaaa4fb4570a0cdaf024100dc09805152fb4ce43c7e2252a90d52273e2ea9d61f78eedc37e5da34419d851011e058b668550aa225db37840294e494779d38981f9bee89a6a6420e640241f10241009942d2925546bcaacc879bab1ccb1ae073d7dde3aedb350aabc356a130f75382225cacbbce47e482df4fe44f981da21d3017e6d688922460193200658c73e3650241008775a9f366dca27797ee26ff3067acfdcfc0367a45a1d39aeb26abf0a3bc6fa07700e05c5b5a8f53476eef7c6b82723e1c6d43dc1309920e57f3de92b16ada6102410088efdc84ca9672855b23390abb8021a2c7d398ad2fe3e386dfceb4a6844f7bc47b4fa6db6c832bd2935b95bb300b94ab2d9876156bd93b506f7ce530d2fc3d0d</org-zeroturnaround-jrebel-netbeans.remoting_2e_private>
+        <org-zeroturnaround-jrebel-netbeans.remoting_2e_public>30818902818100c00779c7415f955d5b5fb628acaf8af44619bb3ad03b8b34cd3ff63d26d26fbad6cb2d32d7777ae5b1bdd60194acb2df871f62db765d4f346bb1fea74ca968f8aa84464c6c500067a282619f01151baa7cf30dbb1c85ca43902c000283ce8f14348a506a4be4ed78d02fcb4481880f2bcf5bd3b3eaf5d08616f33d23d2f910bf0203010001</org-zeroturnaround-jrebel-netbeans.remoting_2e_public>
+    </properties>
+</project-shared-configuration>

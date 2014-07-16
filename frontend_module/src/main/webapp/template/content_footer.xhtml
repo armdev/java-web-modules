@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <div class="row-fluid well">
+        <div class="span6">
+            <h2>Rate this tutorial</h2>
+            <form id="rating_form" style="float:right;">
+                <label for="amount">Rating:</label>
+                <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;"/>
+            </form>
+            <div id="slider-vertical" style="height: 100px;" onmouseup="rat_val()"></div>
+            <h2>Share this tutorial</h2>                                    
+
+            <p><script type="IN/Share"></script><script src="//platform.linkedin.com/in.js" type="text/javascript"></script></p>
+            <p><a href="http://feeds.feedburner.com/W3resource"><img src="/images/rss_32.png" alt="RSS Feed" style="vertical-align: middle"/> Subscribe to our feed</a></p>
+
+        </div>
+        <div class="span6">
+            <h2>Continue reading</h2>                                    
+            <form class="search" style="font-size:11px;" method="get" name="searchform" action="http://www.google.com/search" target="_blank">
+                <input type="hidden" name="sitesearch" value="www.w3resource.com"/>
+                <input style="width: 200px; margin: 0px;" type="text" name="as_q" size="20" value="Search w3resource tutorials"/>
+                <input type="submit" title="Search" class="btn btn-success" value="Search"/>
+            </form>
+            <h2>Recent Updates</h2>
+            <p><a href="http://www.w3resource.com/ajax/working-with-PHP-and-MySQL.php">Working with Ajax, PHP and MySQL</a></p>
+            <p><a href="http://www.w3resource.com/ajax/introduction.php">Ajax Tutorial</a></p>
+            <p><a href="http://www.w3resource.com/zurb-foundation3/reveal.php">Create Responsive Image and Content Slider with Orbit</a></p>
+            <p><a href="http://www.w3resource.com/python/python-tutorial.php">Python 3.2 Tutorial</a></p>
+            <p><a href="http://www.w3resource.com/twitter-bootstrap/responsive-design.php">Responsive Web Design with Twitter Bootstrap</a></p>
+        </div>
+    </div>
+    <div class="row-fluid" style="text-align:center">
+        <div class="span12">
+            <hr/>
+            <div id="disqus_thread"   itemtype='http://schema.org/CreativeWork/Comment'></div>
+
+        </div>
+    </div><!-- code before footer ends -->
+</ui:composition>

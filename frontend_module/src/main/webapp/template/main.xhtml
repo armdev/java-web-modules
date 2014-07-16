@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <ui:insert name="headers"></ui:insert>
+        <ui:include src="main_headers.xhtml"/>
+    </head>
+    <body>
+        <ui:insert name="navbar"></ui:insert>
+        <ui:include src="navbar.xhtml"/>
+        <div class="container-fluid">  
+            <hr class="separator"/>
+            <div class="row-fluid">
+                <ui:insert name="left"></ui:insert>
+                <div class="span2">
+                    <ui:include src="left.xhtml"/>
+                </div><!--/span-->
+                <div class="span7">
+                    <ui:insert name="content"></ui:insert>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <!-- content goes here -->
+                            <ui:include src="content.xhtml"/>
+                            <!--content ends here -->
+                            <!-- code before footer starts -->                                                   
+                            <ui:include src="content_footer.xhtml"/>
+                        </div>
+                        <!--/span-->
+                    </div><!--/row-->
+                </div><!--/span-->               
+                <aside>
+                    <ui:insert name="right"></ui:insert>
+                    <ui:include src="right.xhtml"/>
+                </aside>               
+                <footer>
+                    <ui:insert name="footer">footer</ui:insert>
+                    <ui:include src="footer.xhtml"/>
+                </footer>
+            </div><!--/.fluid-container-->
+        </div>
+    </body>
+</html>

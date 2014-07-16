@@ -1,0 +1,76 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package taxsystem.core.interfaces;
+
+import java.util.List;
+import taxsystem.core.dto.reporting.cr.MerchantCrDTO;
+import taxsystem.core.dto.reporting.cr.CashRegisterDTO;
+import taxsystem.core.dto.reporting.cr.CashRegisterFilterDTO;
+import taxsystem.core.dto.reporting.cr.CheckDTO;
+import taxsystem.core.dto.FairDTO;
+import taxsystem.core.dto.cr.CrChangeHistoryDTO;
+import taxsystem.core.dto.cr.CrObjectDTO;
+import taxsystem.core.dto.cr.CrAdvancedFilterDTO;
+import taxsystem.core.dto.cr.CrSimpleFilterDTO;
+import taxsystem.core.dto.cr.SupportCenterDTO;
+import taxsystem.core.dto.cr.SupportCenterFilterDTO;
+import taxsystem.core.dto.reporting.cr.CrFilterDTO;
+import taxsystem.core.dto.reporting.cr.MissingDataDTO;
+import taxsystem.core.dto.reporting.cr.MissingDataFilterDTO;
+import taxsystem.core.dto.reporting.cr.SummaryDTO;
+import taxsystem.core.dto.reporting.cr.ZReportDTO;
+
+
+/**
+ *
+ * @author Administrator
+ */
+public interface CrManager {
+  List<FairDTO> getReportFairList(CrFilterDTO filter);
+  SummaryDTO getReportSummary(String fairTin, CrFilterDTO filter);
+  SummaryDTO getReportSummaryAll(CrFilterDTO filter);
+  List<MerchantCrDTO> getReportMerchantCrList(CrFilterDTO filter);
+  SummaryDTO getReportMerchantCrSummary(String merchantTin, String registerId, CrFilterDTO filter);
+  SummaryDTO getReportMerchantCrSummaryAll(CrFilterDTO filter);
+  List<ZReportDTO> getByFairReportZReportList(String fairTin, CrFilterDTO filter, Integer start, Integer count);
+  Long getByFairReportZReportCount(String fairTin, CrFilterDTO filter);
+  List<CheckDTO> getByCrReportCheckList(String merchantTin, String registerId, CrFilterDTO filter, Integer start, Integer count);
+  Long getByCrReportCheckCount(String merchantTin, String registerId, CrFilterDTO filter);
+  void changeCashRegisterStatus(Long cashRegisterUid, Integer status);
+  boolean createCashRegister(CashRegisterDTO cashRegister);
+  CashRegisterDTO getCashRegisterInfo(Long cashRegisterUid);
+  List<CashRegisterDTO> getCashRegisterList(CashRegisterFilterDTO filter, Integer start, Integer count);
+  Long getCashRegisterCount(CashRegisterFilterDTO filter);
+  boolean updateCashRegisterInfo(Long cashRegisterUid, CashRegisterDTO cashRegister);
+  byte[] getByFairReport(CrFilterDTO filter);
+  byte[] getByCrReport(CrFilterDTO filter);
+  List<MissingDataDTO> getMissingDataList(MissingDataFilterDTO filter, Integer start, Integer count);
+  Long getMissingDataCount(MissingDataFilterDTO filter);
+  byte[] getMissingDataReport(MissingDataFilterDTO filter); 
+  
+  /// Cash Register Objects
+  Long createCrObject(CrObjectDTO dto);
+  boolean updateCrObject(CrObjectDTO dto);
+  boolean changeCrObjectStatus(CrObjectDTO dto);
+  List<CrObjectDTO> getCrObjectList(CrSimpleFilterDTO filter,Integer start,Integer count);
+  List<CrObjectDTO> getCrObjectList(CrAdvancedFilterDTO filter,Integer start,Integer count);
+  Long getCrObjectCount(CrAdvancedFilterDTO filter);
+  Long getCrObjectCount(CrSimpleFilterDTO filter);
+  CrObjectDTO getCrObjectById(Long id);
+  
+  /// Cash Register Support Centers
+  boolean createSupportCenter(SupportCenterDTO dto);  
+  Long getSupportCenterCount(SupportCenterFilterDTO filter);
+  List<SupportCenterDTO> getSupportCenterList(SupportCenterFilterDTO filter,Integer start,Integer count);
+  SupportCenterDTO getSupportCenterByTin(String tin);
+  List<CrChangeHistoryDTO> getCrHistoryList(Long crn, Integer start,Integer count);
+  Long getCrHistoryCount(Long crn);  
+  
+  List<CrObjectDTO> getCrObjectByInspectorList(String inspectorId,Integer start,Integer count);
+  Long getCrObjectByInspectorCount(String inspectorId);
+  public void callFacade();
+  
+}

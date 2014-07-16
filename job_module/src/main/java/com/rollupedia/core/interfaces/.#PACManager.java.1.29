@@ -1,0 +1,63 @@
+
+package taxsystem.core.interfaces;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import taxsystem.core.dto.TaxConfigurationDTO;
+import taxsystem.core.dto.TaxDeclarationDTO;
+import taxsystem.core.dto.decls.CustomTransactionDTO;
+import taxsystem.core.dto.decls.OverpaymentTransferDTO;
+import taxsystem.core.dto.decls.PaybackDTO;
+import taxsystem.core.dto.pac.PACDeclResultDTO;
+import taxsystem.core.dto.pac.PACTransactionDTO;
+import taxsystem.core.dto.pac.PACViewReportDTO;
+import taxsystem.core.dto.pac.PACardDTO;
+import taxsystem.core.dto.pac.PACardReport;
+import taxsystem.core.dto.pac.PacCardBalanceReportDTO;
+import taxsystem.core.dto.pac.PacMessageLogDTO;
+import taxsystem.core.dto.pac.sr.BaseSRDocumentDTO;
+import taxsystem.core.types.ObligationPeriod;
+import taxsystem.core.types.PACTransactionCode;
+import taxsystem.core.types.PacSrPaymentGroupType;
+
+/**
+ *
+ * @author Alik
+ */
+public interface PACManager {
+  void addPACTransaction(PACTransactionDTO dto);
+  void addPACTransactionsToCard(List<PACTransactionDTO> transList, PACardDTO cardDTO);
+  
+  PACardDTO createPAC(PACardDTO card, List<PACTransactionDTO> transactions, List<PACTransactionDTO> sFtransaction);
+  
+  PACardDTO createPAC(PACardDTO card, List<PACTransactionDTO> transactions, PACTransactionCode prepayType, double prepayAmount);
+  TaxConfigurationDTO getTaxConfiguration(ObligationPeriod period, String taxCode, Integer taxYear);
+  TaxDeclarationDTO getTaxDeclaration(ObligationPeriod period, String taxCode, Integer taxYear);
+  PACardDTO getPACardByTinAndTaxType(String tin, String taxCode);
+  List<PACardDTO> getTaxPayerPACards(String tin, boolean onlyMasters);
+  List<PACardReport> getPACardReportList(Long cardId, Date reportDate);
+  List<ObligationPeriod> getPeriodListByTaxCode(String taxCode,Date date);
+  
+  PACDeclResultDTO createPayback(PaybackDTO dto, String username);
+  PACDeclResultDTO createOverpaymentTransfer(OverpaymentTransferDTO dto, String username);
+
+  List<PacCardBalanceReportDTO> getBalanceReportsForPeriod(String tin, String taxType, Date fromDate, Date toDate) ;
+  List<PacCardBalanceReportDTO> getCardBalanceReport(String distCode, String tin, String taxTypeCode, Date forDate) ;
+  
+  List<PacMessageLogDTO> getPacCardMessageLog(Long pacId) ;
+  List<PACViewReportDTO> getPACViewReport(Long cardId, Date reportDate);
+  
+  Map<Integer, BaseSRDocumentDTO> loadCardDocuments(Long masterPacId) ;
+  Double getCardOverpaymentForDate(long pacId, Date forDate, PacSrPaymentGroupType overpaymentType);
+  
+  boolean removePaymentByDocumentNumber(String docNumber);
+  
+<<<<<<< PACManager.java
+  void createCustomTransaction(CustomTransactionDTO dto);
+  
+=======
+  String createCustomTransaction(CustomTransactionDTO dto);
+>>>>>>> 1.29
+}

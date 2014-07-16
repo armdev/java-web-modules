@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <group name="Application">
+        <job>
+            <name>NotificationJob</name>
+            <class>om.rollupmedia.jobs.test.TestJobTask</class>
+            <repeat-count>-1</repeat-count> <!-- repeat forever  -->
+            <repeat-interval>3000</repeat-interval>  <!--  every 10 seconds -->
+            <description>My test job</description>
+        </job>    
+    </group>
+    <!--  <group name="Invoices">
+      <job>
+        <name>MarkNumberErrorsJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.invoice.MarkNumberErrorsJob</class>
+        <description>Marks assigned but unused numbers from the client as tech. errors</description>
+        <cronPattern>0 45 3 * * ?</cronPattern>
+      </job>
+      <job>
+        <name>InvNumberPregenerationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.invoice.NumberPregenerationJob</class>
+        <param name="MAX_PREGENERATED">200000</param>
+        <description>Pre-generates invoice numbers</description>
+        <cronPattern>0 30 3 * * ?</cronPattern>
+      </job>
+      <job>
+        <name>ApproveInvoicePrintsJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.invoice.ApproveInvoicePrintsJob</class>
+        <description>Automatically approves old invoice prints</description>
+        <cronPattern>0 25 3 * * ?</cronPattern>
+      </job>
+      <job>
+        <name>MigrateInvoiceXmlJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.invoice.InvoiceXmlMigrationJob</class>
+        <description>Migrates invoice xmls from db tables to file storage</description>
+        <cronPattern>0 30 4 * * ?</cronPattern>
+      </job>
+    </group>
+    <group name="Dictionaries">
+      <job>
+        <name>ReloadDictionaryJob</name>
+        <class>am.iunetworks.tp3.ejb.control.dict.DictionaryReloadJob</class>
+        <description>Checks if dictionaries should be reloaded</description>
+        <cronPattern>0 5/20 * * * ?</cronPattern>
+      </job>
+    </group>
+    <group name="Tp Migration">
+      <job>
+        <name>MigrateTpEntJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.MigrateTpEntJob</class>
+        <cronPattern>0 30 1 ? * WED</cronPattern>
+        <description>Migrates TP_ENT from Taxpayer2 every Wednesday morning</description>
+      </job>
+    </group>
+    <group name="Card migration">
+      <job>
+        <name>PACMigrJob_Ashtarak_12</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">12
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Aparan_14</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">14
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Ararat_17</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">17
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Artik_18</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">18
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Artashat_19</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">19
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Armavir_20</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">20
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Goris_23</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">23
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Gyumri_24</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">24
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_VayocDzor_25</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">25
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Ejmiacin_26</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">26
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Talin_27</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">27
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Tumanyan_28</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">28
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Ijevan_29</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">29
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Kapan_30</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">30
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Gavar_31</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">31
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Kotayk_32</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">32
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Hrazdan_34</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">34
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Masis_35</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">35
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Martuni_36</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">36
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Meghri_37</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">37
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Nairi_38</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">38
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Noyemberyan_39</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">39
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Sevan_41</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">41
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Sisian_42</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">42
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Vanadzor_44</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">44
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Charencavan_47</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">47
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Tashir_48</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">48
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_QanakerZeytun_60</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">60
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Spandaryan1_63</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">63
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Arabkir1_67</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">67
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Xoshor_70</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">70
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Arabkir_71</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">71
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Erebuni_72</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">72
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Xorhrdayin_73</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">73
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Mashtoc_74</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">74
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Miasnikyan_75</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">75
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Shahumyan_76</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">76
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Shengavit_77</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">77
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+      <job>
+        <name>PACMigrJob_Spandaryan_78</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.TaxCardMigrationJob</class>
+        <param name="distCodes">78
+        </param>
+        <param name="taxCodes">01;25;15;04;03;10;34;17;32;24;21;33;20;30;23;02;13;09
+        </param>
+      </job>
+    </group>
+    <group name="Declaration migration">
+      <job>
+        <name>VATDeclarationMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.VATMigrationJob</class>
+        <description>Copies VAT declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>CigarMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.CigarMigrationJob</class>
+        <description>Copies Cigar declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>EProfitMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.EProfitMigrationJob</class>
+        <description>Copies EProfit declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>ExMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.ExMigrationJob</class>
+        <description>Copies Ex declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>GoodsMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.GoodsMigrationJob</class>
+        <description>Copies Goods declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>ImpbtMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.ImpbtMigrationJob</class>
+        <description>Copies Imbt declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>IncLegMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.IncLegMigrationJob</class>
+        <description>Copies IncLeg declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>InvoiceMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.InvoiceMigrationJob</class>
+        <description>Copies Invoice declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>ProfitNRMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.ProfitNRMigrationJob</class>
+        <description>Copies ProfitNR declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>PubServiceMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.PubServiceMigrationJob</class>
+        <description>Copies Pub Service declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>SocLegMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.SocLegMigrationJob</class>
+        <description>Copies SocLeg declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>EnvMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.EnvMigrationJob</class>
+        <description>Copies Env declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>AccountingBalanceType1Job</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.AccountingBalanceType1Job</class>
+        <description>Accounting balance type 1 job</description>
+      </job>
+      <job>
+        <name>AccountingBalanceType2Job</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.AccountingBalanceType2Job</class>
+        <description>Accounting balance type 2 job</description>
+      </job>
+      <job>
+        <name>NoResidentProfitJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.NoResidentProfitJob</class>
+        <description>Non Resident Profit job</description>
+      </job>
+      <job>
+        <name>SocInsuranceIncomeJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.SocInsuranceIncomeJob</class>
+        <description>Social Insurance income job</description>
+      </job>
+      <job>
+        <name>PrsMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.PrsMigrationJob</class>
+        <description>Copies Prs declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>PrsSvedMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.PrsSvedMigrationJob</class>
+        <description>Copies Prs_sved declarations from TP2 database</description>
+      </job>
+      <job>
+        <name>PrsLimitMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.decls.PrsLimitMigrationJob</class>
+        <description>Copies Prs_limit declarations from TP2 database</description>
+      </job>
+    </group>
+    <group name="Treasury payment migration">
+      <job>
+        <name>NormPaymentMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.treasury.NormPaymentMigrationJob</class>
+        <description>Migrate Norm Payments from TP2 database</description>
+      </job>  
+      <job>
+        <name>UnPaymentMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.treasury.UnPaymentMigrationJob</class>
+        <description>Migrate Un Payments from TP2 database</description>
+      </job>  
+    </group>
+    <group name="Audit migration">
+      <job>
+        <name>AuditorsMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.audit.AuditorsMigrationJob</class>
+        <description>Migrate Auditors from TP2 database</description>
+      </job>  
+      <job>
+        <name>AuditStatementsMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.audit.AuditStatementsMigrationJob</class>
+        <description>Migrate Audit Statements from TP2 database</description>
+      </job>  
+    </group>  
+    <group name="Objects migration">
+      <job>
+        <name>ObjMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.obj.ObjMigrationJob</class>
+        <description>Migrate Objects from TP2 database</description>
+      </job>  
+    </group>
+    <group name="Cr migration">
+      <job>
+        <name>CrObjMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.cr.CrObjMigrationJob</class>
+        <description>Migrate Cr Objects from TP2 database</description>
+      </job>  
+      <job>
+        <name>CrInspectorMigrationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.migration.cr.CrInspectorMigrationJob</class>
+        <description>Migrate Cr Inspectors from TP2 database</description>
+      </job>  
+    </group>
+    <group name="Treasury tools">
+      <job>
+        <name>ProcessTreasuryDeletePaymentsJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.tools.treasury.ProcessTreasuryDeletePaymentsJob</class>
+        <description>Delete treasury payment by list</description>
+      </job>
+      <job>
+        <name>ProcessTreasuryUpdatePaymentsJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.tools.treasury.ProcessTreasuryUpdatePaymentsJob</class>
+        <description>Update treasury payment by list</description>
+      </job>
+    </group>
+    <group name="Pac Repost tool">
+      <job>
+        <name>PACRepostJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.pac.repost.PACRepostJob</class>
+        <param name="delete_transaction">true</param>
+        <description>Repost all pac declarations which are not proccessed</description>
+      </job>
+    </group>
+    <group name="Object status activation">
+      <job>
+        <name>ObjStatusActivationJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.object.ObjStatusActivationJob</class>
+        <description>Activate status of lie off objects</description>
+      </job>
+    </group>
+    <group name="CRM status activation">
+      <job>
+        <name>CrmActivateJob</name>
+        <class>am.iunetworks.tp3.ejb.control.jobs.crm.CrmActivateJob</class>
+        <description>Activate status of terminated crms</description>
+      </job>
+    </group>-->
+</root>
